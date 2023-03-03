@@ -3,7 +3,7 @@ import { Routes,Route } from "react-router-dom";
 /// Importing The Components ----------------------------------------------------------------------------------->
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
-
+import DataLoadingPage from "./components/DataLoadingPage";
 
 
 
@@ -15,6 +15,7 @@ function  Main(){
         <Routes>
             <Route exact path="/signup" element={<SignupPage/>}/>
             <Route exact path="/login" element={<LoginPage/>}/>
+            <Route exact path="/loading" element={<DataLoadingPage/>}/>
         </Routes>
         </>
     )
