@@ -9,7 +9,8 @@ import DataTable from "./DataTable";
 import LogoutButton from "./LogoutButton";
 /// Importing The Action ----------------------------------------------------------------------------->
 import { getData, emptyStore } from "../Actions/managementAction";
-
+/// Importing The CSV --------------------------------------------------------------------------------->
+import { CSVLink } from "react-csv";
 /// Function For The CurdBox--------------------------------------------------------------------------->
 function ItemDetails() {
   const [initialFormValue, setFormValue] = useState({
@@ -121,6 +122,11 @@ function ItemDetails() {
   function setSortData(value) {
     setSort(value);
   }
+  const headers=[
+    {label:"name",key:"name"},
+    {label:"price",key:"price"},
+    {label:"description",key:"description"}
+  ]
   return (
     <>
       <div className="whole-containeri">
@@ -255,7 +261,9 @@ function ItemDetails() {
                 alignItems: "center",
               }}
             >
-              <i class="fa-solid fa-file"></i>
+              <CSVLink data={data} headers={headers}>
+              <button>Download CSV File</button>
+              </CSVLink>
               <div
                 className="arrow-box"
                 style={{
