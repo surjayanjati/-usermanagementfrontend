@@ -5,3 +5,12 @@ export const getData=(value)=>{
         payLoad:value
     }
 }
+
+export const deleteItem=(itemId)=>{
+   console.log(itemId);
+    console.log(itemId);
+  return{
+    type:"DELETEITEM",
+    payLoad:itemId
+  }
+}

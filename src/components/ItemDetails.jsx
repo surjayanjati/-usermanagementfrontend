@@ -22,7 +22,7 @@ const [cookies,setCookie,removeCookie]=useCookies(["loginCookie"]);
 const navigate=useNavigate();
 const dispatch=useDispatch()
 const data=useSelector((event)=>event.managementReducer);
-console.log(data);
+
 function checkValue(){
   if(data.length!==0){
     return <DataTable/>

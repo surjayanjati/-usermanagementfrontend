@@ -7,6 +7,10 @@ export const managementReducer=(state=initalData,Action)=>{
             
              return dataArray;
             break;
+         case "DELETEITEM":
+            const itemId=Action.payLoad;
+            const newArray=state.filter((elem)=>elem.itemId!==itemId);
+            return newArray;   
     
         default:
             return state;

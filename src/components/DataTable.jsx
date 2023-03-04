@@ -1,11 +1,13 @@
 import { useSelector } from "react-redux";
-
+/// Importing The Componenets ------------------------------------>
+import DeleteButton from "./DeleteButton";
 
 import "../public/css/notes.css"
 
 
 function DataTable(){
-const data=useSelector((e)=>e.managementReducer);    
+const data=useSelector((e)=>e.managementReducer);  
+console.log(data);  
     return(
         <>
         {data.map((elem,index)=>{
@@ -20,7 +22,7 @@ const data=useSelector((e)=>e.managementReducer);
               <p>{elem.description}</p>
             </div>
             <div className="buttonbox">
-            
+            <DeleteButton id={elem.itemId}/>
             </div>
             <div className="buttonbox">
           
