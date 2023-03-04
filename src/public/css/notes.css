@@ -359,3 +359,26 @@
 .box3-notebox-employee p{
   font-weight: 600;
 }
+
+
+.search-childbox1{
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.search-childbox2{
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.search-childbox3{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
