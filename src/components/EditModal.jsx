@@ -53,7 +53,7 @@ function EditModal(props){
 async function updateFunction(itemId){
   console.log(itemId);
        const newObj=({name:name,price:price,description:description,id:itemId.itemId});
-       const response=await fetch("/usermanagementsystem/api/v1/users/edititems",{
+       const response=await fetch("/usermanagementsystem/api/v1/users/items",{
         method:"PUT",
         headers:{
             "Content-type":"Application/json",

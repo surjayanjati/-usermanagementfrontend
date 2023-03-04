@@ -46,7 +46,7 @@ function SignupPage(){
          switch (responseData.success) {
             case true:
                 alert(responseData.msg);
-                navigate("/adminpanel/login");
+                navigate("/login");
                 break;
             case false :
                  setResponseData(responseData.msg);

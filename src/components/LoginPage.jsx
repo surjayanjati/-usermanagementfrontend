@@ -85,7 +85,7 @@ function LoginPage(){
                         <i className="button__icon fas fa-chevron-right"></i>
                     </button>		
                     
-                    <button className="button login__submit" onClick={()=>navigate("/adminpanel/signup")}>
+                    <button className="button login__submit" onClick={()=>navigate("/signup")}>
                     <span className="button__text">Sign Up Now</span>
                     <i className="button__icon fas fa-chevron-left"></i>
                     

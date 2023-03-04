@@ -10,7 +10,7 @@
     align-items: center;
   }
   .main-boxi{
-      height: 90%;
+      height: 95%;
       width: 35%;
       background-color: azure;
       box-shadow: 2px 2px 14px 2px black;
@@ -31,7 +31,7 @@
   }
   @media screen and (max-width:600px) {
       .main-boxi{
-          width: 80%;
+          width: 90%;
       }
   }
   @media screen and (max-width:450px) {
@@ -70,7 +70,7 @@
      font-size: 2rem;
   }
   #logoutBtn{
-    width: 90%;
+    width: 94%;
     height: 50%;
     font-size: 1.2rem;
     background-color: brown;

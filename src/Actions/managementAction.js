@@ -27,3 +27,11 @@ export const emptyStore=()=>{
         type:"EMPTYSTORE"
     }
 }
+// Action In The Case When User is Adding The Values ------------------------------>
+export const addData=(newObj)=>{
+  console.log(newObj);
+  return{
+    type:"ADDDATA",
+    payLoad:newObj
+  }
+}

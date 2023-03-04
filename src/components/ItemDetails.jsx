@@ -7,10 +7,10 @@ import "../public/css/notes.css";
 /// Importing The Componenets ------------------------------------------------------------------------->
 import DataTable from "./DataTable";
 import LogoutButton from "./LogoutButton";
+import CsvButton from "./CsvButton";
 /// Importing The Action ----------------------------------------------------------------------------->
-import { getData, emptyStore } from "../Actions/managementAction";
-/// Importing The CSV --------------------------------------------------------------------------------->
-import { CSVLink } from "react-csv";
+import { getData, emptyStore,addData } from "../Actions/managementAction";
+
 /// Function For The CurdBox--------------------------------------------------------------------------->
 function ItemDetails() {
   const [initialFormValue, setFormValue] = useState({
@@ -29,7 +29,7 @@ function ItemDetails() {
     if (data.length !== 0) {
       return <DataTable />;
     } else {
-      return <p>No Data Yet</p>;
+      return <p>No More Data Yet</p>;
     }
   }
   /// Use Effect Hook For Calling Fetch Request _____________________________/
@@ -85,26 +85,28 @@ function ItemDetails() {
   /// Function For Additem Request ______________________/
   async function addItem() {
     const itemId = Math.floor(Math.random() * 100 * Date.now());
-    const data = JSON.stringify({
+    const data =({
       itemId: itemId,
       name: initialFormValue.item,
       price: initialFormValue.price,
       description: initialFormValue.description,
     });
     const response = await fetch(
-      "/usermanagementsystem/api/v1/users/additems",
+      "/usermanagementsystem/api/v1/users/items",
       {
         method: "POST",
         headers: {
           "Content-type": "Application/json",
           "access-token": cookies.loginCookie,
         },
-        body: data,
+        body:JSON.stringify(data) ,
       }
     );
     const responseData = await response.json();
     if (responseData.success === true) {
       alert(responseData.msg);
+      console.log("hi");
+      dispatch(addData(data))
     } else if (responseData.status === 401) {
       removeCookie("loginCookie");
       dispatch(emptyStore());
@@ -122,11 +124,7 @@ function ItemDetails() {
   function setSortData(value) {
     setSort(value);
   }
-  const headers=[
-    {label:"name",key:"name"},
-    {label:"price",key:"price"},
-    {label:"description",key:"description"}
-  ]
+  
   return (
     <>
       <div className="whole-containeri">
@@ -261,9 +259,7 @@ function ItemDetails() {
                 alignItems: "center",
               }}
             >
-              <CSVLink data={data} headers={headers}>
-              <button>Download CSV File</button>
-              </CSVLink>
+              <CsvButton/>
               <div
                 className="arrow-box"
                 style={{

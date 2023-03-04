@@ -19,7 +19,7 @@ const dispatch=useDispatch();
 async function deleteFunction(itemId){
     const id=JSON.stringify({itemId:itemId});
     
-    const response =await fetch("/usermanagementsystem/api/v1/users/deleteitems",{
+    const response =await fetch("/usermanagementsystem/api/v1/users/items",{
         method:"DELETE",
         headers:{
          "Content-type":"Application/json",

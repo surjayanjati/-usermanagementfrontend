@@ -10,7 +10,17 @@ export const managementReducer=(state=initalData,Action)=>{
          case "DELETEITEM":
             const itemId=Action.payLoad;
             const newArray=state.filter((elem)=>elem.itemId!==itemId);
-            return newArray;   
+            return newArray;  
+         case "ADDDATA":
+            const addDataArray=Action.payLoad;
+            if(state.length>=5){
+                return state;
+            }else {
+                return [
+                    ...state,
+                    addDataArray,
+                ]
+            }    
         case "EDITITEM":
             let dataAfterRemovingTheEditedOne=state.filter((elem)=>elem.itemId!==Action.payLoad.id);
             console.log("hi");
