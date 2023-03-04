@@ -4,7 +4,7 @@ import { Routes,Route } from "react-router-dom";
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
 import DataLoadingPage from "./components/DataLoadingPage";
-
+import ItemDetails from "./components/ItemDetails";
 
 
 
@@ -15,7 +15,7 @@ function  Main(){
         <Routes>
             <Route exact path="/signup" element={<SignupPage/>}/>
             <Route exact path="/login" element={<LoginPage/>}/>
-            <Route exact path="/loading" element={<DataLoadingPage/>}/>
+             <Route path="/itemdetails" element={<ItemDetails/>}/>
         </Routes>
         </>
     )

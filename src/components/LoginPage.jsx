@@ -43,7 +43,8 @@ function LoginPage(){
         const responseData=await response.json();
         switch (responseData.success) {
             case true:
-                alert(responseData.msg)
+                alert(responseData.msg);
+                navigate("/itemdetails");
                 break;
             case false:
              setResponseData(responseData.msg);
