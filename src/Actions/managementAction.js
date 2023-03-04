@@ -7,10 +7,23 @@ export const getData=(value)=>{
 }
 
 export const deleteItem=(itemId)=>{
-   console.log(itemId);
-    console.log(itemId);
+
   return{
     type:"DELETEITEM",
     payLoad:itemId
   }
+}
+export const editItem=(newObj)=>{
+  return{
+    type:"EDITITEM",
+    payLoad:newObj
+  }
+};
+
+
+// Action In The Case When user is leaving and need to empty the Store------------->
+export const emptyStore=()=>{
+    return{
+        type:"EMPTYSTORE"
+    }
 }

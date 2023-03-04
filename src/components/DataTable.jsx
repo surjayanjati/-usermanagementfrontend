@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 /// Importing The Componenets ------------------------------------>
 import DeleteButton from "./DeleteButton";
+import EditModal from "./EditModal";
 
 import "../public/css/notes.css"
 
@@ -25,7 +26,7 @@ console.log(data);
             <DeleteButton id={elem.itemId}/>
             </div>
             <div className="buttonbox">
-          
+            <EditModal id={elem.itemId} />
             </div>
           </div>)
         })}

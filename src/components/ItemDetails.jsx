@@ -7,8 +7,9 @@ import "../public/css/notes.css";
 /// Importing The Componenets ------------------------------------------------------------------------->
 import SearchBox from "./SearchBox";
 import DataTable from "./DataTable";
+import LogoutButton from "./LogoutButton";
 /// Importing The Action ----------------------------------------------------------------------------->
-import { getData } from "../Actions/managementAction";
+import { getData,emptyStore } from "../Actions/managementAction";
 
 
 /// Function For The CurdBox--------------------------------------------------------------------------->
@@ -40,7 +41,14 @@ async function fetchValue(){
     },
   });
   const responseData=await response.json();
-  dispatch(getData(responseData.dataArray))
+  console.log(responseData);
+  if(responseData.success===true){
+    dispatch(getData(responseData.dataArray))
+  }else if(responseData.success===false){
+
+    navigate("/login")
+  }
+  
 }
 useEffect(()=>{
 fetchValue()
@@ -72,6 +80,8 @@ async function addItem(){
   if(responseData.success===true){
     alert(responseData.msg);
   }else if(responseData.status===401){
+    removeCookie("loginCookie");
+    dispatch(emptyStore());
     navigate("/login");
   }else if(responseData.success===false){
     alert(responseData.msg);
@@ -87,7 +97,7 @@ async function addItem(){
               <h2>Item-Details</h2>
             </div>
             <div className="box1-firstboxi">
-              <button id="logoutBtn">Logout</button>
+            <LogoutButton />
             </div>
           </div>
           <div id="box2i">
@@ -125,12 +135,19 @@ async function addItem(){
           </div>
           <hr id="notesseparater" />
           <div className="box3">
-            <div id="searchbox" style={{height:"3%",display:"flex",flexDirection:"row",width:"100%"}}>
+            <div id="searchbox" style={{height:"5%",display:"flex",flexDirection:"row",width:"100%"}}>
               
             <SearchBox/>
             </div>
-            <div className="table"style={{height:"97%",display:"flex",flexDirection:"column",width:"100%",paddingTop:"2%"}}>
+            <div className="table"style={{height:"80%",display:"flex",flexDirection:"column",width:"100%",paddingTop:"2%",justifyContent:"center",alignItems:"center"}}>
             {checkValue()}
+            </div>
+            <div className="pagination-box"style={{height:"15%",display:"flex",flexDirection:"row",width:"100%",paddingTop:"2%",paddingLeft:"5%" ,paddingRight:"5%" ,justifyContent:"space-between",alignItems:"center"}}>
+            <i class="fa-solid fa-file"></i>
+             <div className="arrow-box"style={{display:"flex",flexDirection:"row",width:"20%",justifyContent:"space-between",alignItems:"center"}}>
+             <i class="fa-solid fa-arrow-left"></i>
+             <i class="fa-solid fa-arrow-right"></i>
+             </div>
             </div>
           </div>
         </div>

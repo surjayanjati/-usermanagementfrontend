@@ -1,5 +1,5 @@
 // Importing The Actions ------------------------------------------------------------------------>
-import { deleteItem }  from "../Actions/managementAction";
+import { deleteItem,emptyStore }  from "../Actions/managementAction";
 // Importing The UseCookies --------------------------------------------------------------------->
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
@@ -35,6 +35,7 @@ async function deleteFunction(itemId){
        dispatch(deleteItem(itemId));
     }else if(responseData.status===401){
         removeCookie("loginCookie");
+        dispatch(emptyStore());
         navigate("/login");
       
     }else if(responseData.success===false){
