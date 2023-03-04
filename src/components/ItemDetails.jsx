@@ -1,8 +1,15 @@
 /// Importing The Css --------------------------------------------------------------------------------->
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import "../public/css/notes.css";
+/// Importing The Componenets ------------------------------------------------------------------------->
+import SearchBox from "./SearchBox";
+import DataTable from "./DataTable";
+/// Importing The Action ----------------------------------------------------------------------------->
+import { getData } from "../Actions/managementAction";
+
 
 /// Function For The CurdBox--------------------------------------------------------------------------->
 function ItemDetails() {
@@ -13,6 +20,32 @@ const [initialFormValue,setFormValue]=useState({
 });
 const [cookies,setCookie,removeCookie]=useCookies(["loginCookie"]);
 const navigate=useNavigate();
+const dispatch=useDispatch()
+const data=useSelector((event)=>event.managementReducer);
+console.log(data);
+function checkValue(){
+  if(data.length!==0){
+    return <DataTable/>
+  }else {
+    return <p>No Data Yet</p>
+  }
+}
+/// Use Effect Hook For Calling Fetch Request _____________________________/
+async function fetchValue(){
+  const response=await fetch("/usermanagementsystem/api/v1/users/searchallitems",{
+    method:"GET",
+    headers:{
+     "Content-type":"Application/json",
+      "access-token":cookies.loginCookie
+    },
+  });
+  const responseData=await response.json();
+  dispatch(getData(responseData.dataArray))
+}
+useEffect(()=>{
+fetchValue()
+},[])
+
 // Function For InputEvent_____________________________/
 function inputEvent(e){
     const {name,value}=e.target;
@@ -91,7 +124,15 @@ async function addItem(){
             </div>
           </div>
           <hr id="notesseparater" />
-          <div className="box3"></div>
+          <div className="box3">
+            <div id="searchbox" style={{height:"3%",display:"flex",flexDirection:"row",width:"100%"}}>
+              
+            <SearchBox/>
+            </div>
+            <div className="table"style={{height:"97%",display:"flex",flexDirection:"column",width:"100%",paddingTop:"2%"}}>
+            {checkValue()}
+            </div>
+          </div>
         </div>
       </div>
     </>

@@ -235,4 +235,127 @@
   .buttonbox i{
    font-size: 1.5rem;
    cursor: pointer;
+    };
+
+    #searchbox{
+        height: 20%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
     }
+
+    /* Box 3 Notes Showinng Box Styling ----------------------------------*/
+  .box3{
+    height: 65%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    overflow-y: scroll;
+  }
+  .box3-notebox{
+    height: 15%;
+    width: 100%;
+    
+    margin-bottom: 1%;
+    display: flex;
+    flex-direction: row;
+ 
+  }
+   .textbox{
+  width: 20%;
+  display: flex;
+  margin-left: 1%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }
+  .emailbox{
+    width: 45%;
+  display: flex;
+  margin-left: 1%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }
+  .typebox{
+    width: 20%;
+  display: flex;
+  margin-left: 1%;
+  flex-direction: row;
+  
+  align-items: center;
+  }
+  .buttonbox{
+  width: 7%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }
+  .buttonbox i{
+   font-size: 1.2rem;
+   cursor: pointer;
+    }
+    /* Manager Box Styling -----------------------------------------------------*/
+     .manager-box3{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+  }
+  .manager-box3-notebox{
+    height: 15%;
+    width: 96%;
+    
+    margin-bottom: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+   .manager-textbox{
+  width: 35%;
+  display: flex;
+  margin-left: 1%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }
+  .manager-emailbox{
+    width: 48%;
+    display: flex;
+    margin-left: 1%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    }
+  .manager-buttonbox{
+  width: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }
+  .manager-buttonbox i{
+   font-size: 1.5rem;
+   cursor: pointer;
+    }
+/* Css For The Employee Section ----------------------------------------------------*/
+
+.box3-notebox-employee{
+  height: 40%;
+  width: 100%;
+  
+  margin-bottom: 1%;
+  display: flex;
+  flex-direction: column;   
+  
+  align-items: center;
+}
+.box3-notebox-employee p{
+  font-weight: 600;
+}
